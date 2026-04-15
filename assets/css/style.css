@@ -1,4 +1,4 @@
-/* Design reminder: Editorial futurism with asymmetric composition, teal annotations, disciplined spacing, and crisp motion over a near-black canvas. */
+/* Design: Editorial Futurism with personalized hero, teal accents, smooth interactions */
 :root {
   --bg: #0a0f1a;
   --bg-soft: #101827;
@@ -33,7 +33,7 @@ body {
     radial-gradient(circle at 82% 18%, rgba(0, 201, 167, 0.08), transparent 0 24%),
     linear-gradient(180deg, #0a0f1a 0%, #08111c 52%, #0a0f1a 100%);
   color: var(--text);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Sora", sans-serif;
   line-height: 1.65;
   overflow-x: hidden;
 }
@@ -49,19 +49,6 @@ body::before {
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 80%);
   pointer-events: none;
   z-index: -2;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663561264118/HEyLipXGZVD6rgF5aC5Xvk/eportfolio-contact-grid-art-jPwpVaacobJKbQgpvkU5Vq.webp");
-  background-position: center;
-  background-size: cover;
-  opacity: 0.18;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  z-index: -3;
 }
 
 img {
@@ -93,13 +80,24 @@ a {
   position: relative;
 }
 
+/* ============================================================================
+   NAVBAR / HEADER
+   ============================================================================ */
+
 .site-header {
   position: sticky;
   top: 0;
   z-index: 20;
+  backdrop-filter: blur(0px);
+  background: rgba(10, 15, 26, 0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  transition: backdrop-filter 300ms ease, background 300ms ease, border-color 300ms ease;
+}
+
+.site-header.is-scrolled {
   backdrop-filter: blur(18px);
   background: rgba(10, 15, 26, 0.76);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
 .nav-wrap {
@@ -124,24 +122,17 @@ a {
   border: 1px solid rgba(0, 201, 167, 0.35);
   border-radius: 14px;
   color: var(--accent);
-  font-family: "Sora", sans-serif;
   font-weight: 700;
   letter-spacing: 0.08em;
   background: linear-gradient(145deg, rgba(0, 201, 167, 0.18), rgba(255, 255, 255, 0.02));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  font-size: 0.85rem;
 }
 
 .brand-copy {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
-}
-
-.brand-copy strong,
-.site-nav a,
-.section-kicker,
-.project-index {
-  font-family: "Sora", sans-serif;
 }
 
 .brand-copy strong {
@@ -160,7 +151,7 @@ a {
   gap: 0.4rem;
 }
 
-.site-nav a {
+.nav-link {
   position: relative;
   padding: 0.85rem 1rem;
   color: var(--muted);
@@ -168,13 +159,13 @@ a {
   border-radius: 999px;
 }
 
-.site-nav a:hover,
-.site-nav a.is-active {
+.nav-link:hover,
+.nav-link.is-active {
   color: var(--text);
   background: rgba(255, 255, 255, 0.04);
 }
 
-.site-nav a.is-active::after {
+.nav-link.is-active::after {
   content: "";
   position: absolute;
   left: 1rem;
@@ -203,6 +194,10 @@ a {
   background: var(--text);
 }
 
+/* ============================================================================
+   SECTIONS & LAYOUT
+   ============================================================================ */
+
 .section {
   position: relative;
   padding: 6.5rem 0;
@@ -214,20 +209,8 @@ a {
   min-height: 100vh;
   display: flex;
   align-items: center;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 4rem 0 auto 0;
-  height: 68vh;
-  background-image: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663561264118/HEyLipXGZVD6rgF5aC5Xvk/eportfolio-hero-tech-orb-36nUtvuAukryWTPpjcaVg2.webp");
-  background-repeat: no-repeat;
-  background-size: min(72vw, 980px);
-  background-position: left top;
-  opacity: 0.84;
-  z-index: -1;
-  pointer-events: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-grid,
@@ -261,31 +244,72 @@ a {
   font-size: 0.78rem;
 }
 
-.hero h1,
+.hero-title,
 .section-heading h2,
 .project-copy h3,
 .cert-card h3 {
   margin: 0;
-  font-family: "Sora", sans-serif;
   line-height: 1.05;
 }
 
-.hero h1 {
+.hero-title {
   max-width: 12ch;
   font-size: clamp(3rem, 7vw, 5.8rem);
   letter-spacing: -0.05em;
 }
 
-.hero h1 span {
-  display: block;
+.accent-text {
   color: var(--accent);
 }
 
-.hero-lead {
+/* Typewriter Effect */
+.typewriter-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 1.2rem 0 1.6rem;
+  min-height: 3.5rem;
+}
+
+.typewriter-prefix {
+  font-size: 1.5rem;
+  color: var(--muted);
+}
+
+.typewriter-text {
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-weight: 600;
+  min-width: 200px;
+}
+
+.typewriter-cursor {
+  font-size: 1.5rem;
+  color: var(--accent);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.hero-role {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 1rem;
+}
+
+.hero-bio {
   max-width: 62ch;
-  margin: 1.6rem 0 0;
   color: var(--muted);
   font-size: 1.08rem;
+  margin: 0 0 2rem;
 }
 
 .hero-actions,
@@ -322,14 +346,14 @@ a {
 }
 
 .button-secondary {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text);
+  border-color: rgba(0, 201, 167, 0.36);
+  background: rgba(0, 201, 167, 0.08);
+  color: var(--accent);
 }
 
 .button-secondary:hover {
-  border-color: rgba(0, 201, 167, 0.36);
-  background: rgba(0, 201, 167, 0.08);
+  border-color: rgba(0, 201, 167, 0.6);
+  background: rgba(0, 201, 167, 0.16);
 }
 
 .stats-row {
@@ -358,7 +382,6 @@ a {
 
 .stats-row strong {
   display: block;
-  font-family: "Sora", sans-serif;
   font-size: 2rem;
   margin-bottom: 0.25rem;
 }
@@ -373,6 +396,10 @@ a {
 .site-footer p {
   color: var(--muted);
 }
+
+/* ============================================================================
+   PROFILE CARD & HERO PANEL
+   ============================================================================ */
 
 .hero-panel {
   display: flex;
@@ -396,7 +423,8 @@ a {
   box-shadow: 0 24px 60px rgba(0, 201, 167, 0.18);
 }
 
-.profile-ring img {
+.profile-ring img,
+.profile-image {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
@@ -405,6 +433,16 @@ a {
 
 .profile-meta {
   margin-top: 1.5rem;
+}
+
+.profile-meta p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.profile-meta a {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .profile-meta ul {
@@ -422,7 +460,12 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
+  font-size: 0.85rem;
 }
+
+/* ============================================================================
+   SPLIT LAYOUT & SECTIONS
+   ============================================================================ */
 
 .split-layout {
   grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
@@ -462,6 +505,7 @@ a {
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 6px rgba(0, 201, 167, 0.12);
+  flex-shrink: 0;
 }
 
 .skill-groups,
@@ -513,11 +557,14 @@ a {
 }
 
 .cert-card span {
-  font-family: "Sora", sans-serif;
   color: var(--accent);
   font-weight: 700;
   font-size: 1.2rem;
 }
+
+/* ============================================================================
+   PROJECTS
+   ============================================================================ */
 
 .project-stack {
   margin-top: 2rem;
@@ -545,13 +592,13 @@ a {
   min-height: 320px;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(10, 15, 26, 0.12)),
-    url("https://d2xsxph8kpxj0f.cloudfront.net/310519663561264118/HEyLipXGZVD6rgF5aC5Xvk/eportfolio-project-card-art-EefEyaEd7byjvHJDGDQvdD.webp") center/cover no-repeat;
+    linear-gradient(135deg, rgba(0, 201, 167, 0.12), rgba(0, 201, 167, 0.04));
 }
 
 .project-visual.secondary {
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(10, 15, 26, 0.24)),
-    url("https://d2xsxph8kpxj0f.cloudfront.net/310519663561264118/HEyLipXGZVD6rgF5aC5Xvk/eportfolio-hero-tech-orb-36nUtvuAukryWTPpjcaVg2.webp") center 35%/cover no-repeat;
+    linear-gradient(45deg, rgba(0, 201, 167, 0.08), rgba(0, 201, 167, 0.02));
 }
 
 .project-copy {
@@ -577,6 +624,10 @@ a {
   margin-top: 0.5rem;
 }
 
+/* ============================================================================
+   CONTACT & FOOTER
+   ============================================================================ */
+
 .contact-panel {
   grid-template-columns: minmax(0, 1.15fr) auto;
   gap: 2rem;
@@ -588,9 +639,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663561264118/HEyLipXGZVD6rgF5aC5Xvk/eportfolio-contact-grid-art-jPwpVaacobJKbQgpvkU5Vq.webp");
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, rgba(0, 201, 167, 0.08), rgba(0, 201, 167, 0.02));
   opacity: 0.25;
   z-index: 0;
 }
@@ -598,6 +647,16 @@ a {
 .contact-panel > * {
   position: relative;
   z-index: 1;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info p {
+  margin: 0;
 }
 
 .site-footer {
@@ -615,6 +674,25 @@ a {
   text-align: right;
 }
 
+/* ============================================================================
+   GLOW ACCENT & ANIMATIONS
+   ============================================================================ */
+
+.glow-accent {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-bottom-right {
+  bottom: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 201, 167, 0.25), transparent 70%);
+  filter: blur(80px);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -625,6 +703,10 @@ a {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
 
 @media (max-width: 1080px) {
   .hero-grid,
@@ -649,6 +731,10 @@ a {
   .contact-actions,
   .footer-wrap p:last-child {
     text-align: left;
+  }
+
+  .contact-panel {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -680,7 +766,7 @@ a {
     transform: translateY(0);
   }
 
-  .site-nav a {
+  .nav-link {
     padding: 0.95rem 1rem;
     border-radius: 14px;
   }
@@ -695,8 +781,12 @@ a {
     padding-top: calc(var(--header-height) + 2rem);
   }
 
-  .hero h1 {
+  .hero-title {
     max-width: 11ch;
+  }
+
+  .typewriter-text {
+    min-width: 150px;
   }
 }
 
@@ -708,12 +798,6 @@ a {
 
   .section {
     padding: 5rem 0;
-  }
-
-  .hero::before {
-    background-size: 130vw;
-    background-position: left 2rem top 1rem;
-    opacity: 0.46;
   }
 
   .profile-card,
@@ -730,5 +814,25 @@ a {
 
   .button {
     width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .typewriter-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .typewriter-text {
+    min-width: 100%;
+  }
+
+  .glow-bottom-right {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -150px;
   }
 }

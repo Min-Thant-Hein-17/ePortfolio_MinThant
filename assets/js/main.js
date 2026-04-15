@@ -1,17 +1,87 @@
-// Design reminder: Keep interactions precise, calm, and purposeful, reinforcing an editorial futurist portfolio experience.
-const menuToggle = document.querySelector('.menu-toggle');
-const siteNav = document.querySelector('.site-nav');
-const navLinks = Array.from(document.querySelectorAll('.site-nav a'));
-const sections = navLinks
-  .map((link) => document.querySelector(link.getAttribute('href')))
-  .filter(Boolean);
-const counters = document.querySelectorAll('[data-counter]');
-const revealItems = document.querySelectorAll('.reveal');
-const yearTarget = document.getElementById('year');
+// Design: Precise, calm interactions reinforcing editorial futurist portfolio experience
 
-if (yearTarget) {
-  yearTarget.textContent = new Date().getFullYear();
+// ============================================================================
+// TYPEWRITER EFFECT
+// ============================================================================
+
+const typewriterElement = document.getElementById('typewriter');
+const phrases = [
+  'build AI systems',
+  'solve real problems',
+  'stay updated',
+  'learn continuously',
+  'make an impact'
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingSpeed = 80;
+const deletingSpeed = 50;
+const pauseBetweenPhrases = 2000;
+
+function typewriter() {
+  const currentPhrase = phrases[phraseIndex];
+  
+  if (isDeleting) {
+    charIndex--;
+  } else {
+    charIndex++;
+  }
+
+  typewriterElement.textContent = currentPhrase.substring(0, charIndex);
+
+  let delay = typingSpeed;
+
+  if (isDeleting) {
+    delay = deletingSpeed;
+  }
+
+  if (!isDeleting && charIndex === currentPhrase.length) {
+    delay = pauseBetweenPhrases;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    delay = 500;
+  }
+
+  setTimeout(typewriter, delay);
 }
+
+// Start typewriter on page load
+if (typewriterElement) {
+  typewriter();
+}
+
+// ============================================================================
+// NAVBAR SCROLL BLUR EFFECT
+// ============================================================================
+
+const navbar = document.getElementById('navbar');
+let lastScrollY = 0;
+
+function updateNavbarBlur() {
+  const scrollY = window.scrollY;
+  
+  if (scrollY > 50) {
+    navbar.classList.add('is-scrolled');
+  } else {
+    navbar.classList.remove('is-scrolled');
+  }
+  
+  lastScrollY = scrollY;
+}
+
+window.addEventListener('scroll', updateNavbarBlur, { passive: true });
+
+// ============================================================================
+// MOBILE MENU TOGGLE
+// ============================================================================
+
+const menuToggle = document.getElementById('menu-toggle');
+const siteNav = document.getElementById('site-nav');
+const navLinks = Array.from(document.querySelectorAll('.nav-link'));
 
 if (menuToggle && siteNav) {
   menuToggle.addEventListener('click', () => {
@@ -34,7 +104,15 @@ if (menuToggle && siteNav) {
   });
 }
 
-const activateCurrentSection = () => {
+// ============================================================================
+// NAVIGATION HIGHLIGHTING ON SCROLL
+// ============================================================================
+
+const sections = navLinks
+  .map((link) => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+function activateCurrentSection() {
   const threshold = window.scrollY + 140;
 
   sections.forEach((section) => {
@@ -46,27 +124,17 @@ const activateCurrentSection = () => {
     const isCurrent = threshold >= section.offsetTop && threshold < section.offsetTop + section.offsetHeight;
     link.classList.toggle('is-active', isCurrent);
   });
-};
+}
 
-const animateCounter = (element) => {
-  const target = Number(element.dataset.counter || 0);
-  const duration = 1200;
-  const start = performance.now();
+window.addEventListener('scroll', activateCurrentSection, { passive: true });
+window.addEventListener('load', activateCurrentSection);
+window.addEventListener('resize', activateCurrentSection);
 
-  const updateValue = (timestamp) => {
-    const progress = Math.min((timestamp - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    element.textContent = String(Math.floor(eased * target));
+// ============================================================================
+// REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+// ============================================================================
 
-    if (progress < 1) {
-      requestAnimationFrame(updateValue);
-    } else {
-      element.textContent = String(target);
-    }
-  };
-
-  requestAnimationFrame(updateValue);
-};
+const revealItems = document.querySelectorAll('.reveal');
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -82,20 +150,11 @@ const revealObserver = new IntersectionObserver(
 
 revealItems.forEach((item) => revealObserver.observe(item));
 
-const counterObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
+// ============================================================================
+// FOOTER YEAR
+// ============================================================================
 
-      animateCounter(entry.target);
-      observer.unobserve(entry.target);
-    });
-  },
-  { threshold: 0.85 }
-);
-
-counters.forEach((counter) => counterObserver.observe(counter));
-
-window.addEventListener('scroll', activateCurrentSection, { passive: true });
-window.addEventListener('load', activateCurrentSection);
-window.addEventListener('resize', activateCurrentSection);
+const yearTarget = document.getElementById('year');
+if (yearTarget) {
+  yearTarget.textContent = new Date().getFullYear();
+}

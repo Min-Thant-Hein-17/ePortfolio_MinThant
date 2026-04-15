@@ -1,274 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Design reminder: Editorial futurism with asymmetric composition, near-black surfaces, teal annotations, and disciplined whitespace. -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A dark-themed single-page eportfolio built with HTML, CSS, and vanilla JavaScript."
-    />
-    <title>Eportfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="site-header" id="top">
-        <div class="container nav-wrap">
-          <a class="brand" href="#hero" aria-label="Go to hero section">
-            <span class="brand-mark">EP</span>
-            <span class="brand-copy">
-              <strong>Eportfolio</strong>
-              <small>Creative Developer Profile</small>
-            </span>
-          </a>
-
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-          </button>
-
-          <nav class="site-nav" aria-label="Primary navigation">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-      </header>
-
-      <main>
-        <section class="hero section" id="hero">
-          <div class="container hero-grid">
-            <div class="hero-copy reveal">
-              <p class="section-kicker">Portfolio / 2026 Edition</p>
-              <h1>
-                Designing and building digital products with
-                <span>clarity, craft, and technical depth.</span>
-              </h1>
-              <p class="hero-lead">
-                I am a multidisciplinary developer focused on elegant frontend experiences,
-                strong engineering foundations, and polished interfaces that communicate
-                credibility at a glance.
-              </p>
-
-              <div class="hero-actions">
-                <a class="button button-primary" href="#projects">View Projects</a>
-                <a class="button button-secondary" href="#contact">Get in Touch</a>
-              </div>
-
-              <div class="stats-row">
-                <article>
-                  <strong data-counter="5">0</strong>
-                  <span>Featured Projects</span>
-                </article>
-                <article>
-                  <strong data-counter="8">0</strong>
-                  <span>Core Skills</span>
-                </article>
-                <article>
-                  <strong data-counter="3">0</strong>
-                  <span>Certifications</span>
-                </article>
-              </div>
-            </div>
-
-            <aside class="hero-panel reveal">
-              <div class="profile-card">
-                <div class="profile-ring">
-                  <img
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663561264118/HEyLipXGZVD6rgF5aC5Xvk/eportfolio-profile-placeholder-SSphf2bhMJ435BTsBhAH5D.webp"
-                    alt="Profile placeholder portrait"
-                  />
-                </div>
-                <div class="profile-meta">
-                  <p>Available for freelance and full-time opportunities</p>
-                  <ul>
-                    <li>Frontend Systems</li>
-                    <li>UI Engineering</li>
-                    <li>Product Storytelling</li>
-                  </ul>
-                </div>
-              </div>
-            </aside>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Min Thant Hein | Data Science & AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <!-- NAVBAR -->
+    <header class="site-header" id="navbar">
+      <nav class="nav-wrap container">
+        <!-- Left: Logo/Brand -->
+        <a href="#hero" class="brand">
+          <div class="brand-mark">MTH</div>
+          <div class="brand-copy">
+            <strong>Min Thant Hein</strong>
+            <small>Data Science & AI</small>
           </div>
-        </section>
+        </a>
 
-        <section class="section about" id="about">
-          <div class="container split-layout">
-            <div class="section-heading reveal">
-              <p class="section-kicker">About</p>
-              <h2>Building work that is functional, legible, and memorable.</h2>
+        <!-- Center: Navigation Links -->
+        <div class="site-nav" id="site-nav">
+          <a href="#about" class="nav-link is-active">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#certifications" class="nav-link">Certifications</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Right: Monogram Badge (Mobile Menu Toggle) -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left: Text Content -->
+          <div class="hero-copy">
+            <h1 class="hero-title">
+              Hi! I'm <span class="accent-text">Min Thant Hein</span>.
+            </h1>
+
+            <!-- Typewriter Subtitle -->
+            <div class="typewriter-container">
+              <span class="typewriter-prefix">I </span>
+              <span class="typewriter-text" id="typewriter"></span>
+              <span class="typewriter-cursor">|</span>
             </div>
-            <div class="section-body reveal">
-              <p>
-                I approach digital products as systems of communication. Good interfaces should not only
-                look refined; they should also reduce friction, support decisions, and create trust. My
-                work combines visual discipline, frontend implementation, and thoughtful interaction design.
-              </p>
-              <p>
-                This portfolio format is intentionally concise: a single scrollable narrative that surfaces
-                skills, evidence, and contact points without forcing visitors through multiple pages.
-              </p>
+
+            <!-- Role & Bio -->
+            <p class="hero-role">Data Science Student | AI Engineer | Educator</p>
+            <p class="hero-bio">
+              I'm passionate about building AI systems that solve real-world problems. With expertise in data analytics, machine learning, and project management, I bridge the gap between technical depth and practical impact.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="hero-actions">
+              <a href="#contact" class="button button-primary">Get in Touch</a>
+              <a href="#" class="button button-secondary" download>Download CV</a>
+            </div>
+          </div>
+
+          <!-- Right: Profile Photo -->
+          <div class="hero-panel">
+            <div class="profile-card">
+              <div class="profile-ring">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663561264118/HEyLipXGZVD6rgF5aC5Xvk/min-thant-hein-profile-GcwxaCnJS76MCb3pzkGFfF.webp" alt="Min Thant Hein" class="profile-image" />
+              </div>
+              <div class="profile-meta">
+                <p>📍 Chiang Mai, Thailand</p>
+                <p>📧 <a href="mailto:minthanthein454@gmail.com">minthanthein454@gmail.com</a></p>
+                <p>📱 +66-620-276-712</p>
+                <ul>
+                  <li>Data Science</li>
+                  <li>Machine Learning</li>
+                  <li>Analytics</li>
+                  <li>Python & R</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teal Radial Glow Background Accent -->
+      <div class="glow-accent glow-bottom-right"></div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="split-layout">
+          <div>
+            <h2 class="section-kicker">About</h2>
+          </div>
+          <div>
+            <h2 class="section-heading">Bridging Data & Impact</h2>
+            <div class="section-body">
+              <p>I'm a Statistics and Data Science major at Parami University (Class of 2027) with a passion for leveraging data to solve meaningful problems. My background spans education, curriculum design, and technical analytics.</p>
+              <p>As a Curriculum Specialist at Team For ASEAN Organization, I designed learning experiences for disadvantaged youth. As an English Teacher at Beam Education Foundation, I fostered inclusive learning environments. These roles taught me the importance of communication, adaptability, and user-centered thinking—principles I bring to every technical project.</p>
+              <p>Today, I focus on data science, machine learning, and building systems that make a difference.</p>
+
               <div class="timeline-note">
                 <span></span>
-                <p>Interested in product design, frontend architecture, accessibility, and design systems.</p>
+                <div>
+                  <strong>Currently:</strong> Pursuing my degree while exploring AI applications in education and social impact.
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section class="section skills" id="skills">
-          <div class="container">
-            <div class="section-heading reveal narrow">
-              <p class="section-kicker">Skills</p>
-              <h2>Capabilities organized around product delivery.</h2>
-            </div>
-
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="split-layout">
+          <div>
+            <h2 class="section-kicker">Skills</h2>
+          </div>
+          <div>
+            <h2 class="section-heading">Technical Capabilities</h2>
             <div class="skill-groups">
-              <article class="skill-card reveal">
-                <h3>Frontend Engineering</h3>
+              <div class="skill-card reveal">
+                <h3>Data & Analytics</h3>
                 <div class="badge-list">
-                  <span>HTML5</span>
-                  <span>CSS3</span>
-                  <span>JavaScript</span>
-                  <span>Responsive Layouts</span>
+                  <span>SQL</span>
+                  <span>Python</span>
+                  <span>R</span>
+                  <span>PowerBI</span>
+                  <span>Google Analytics</span>
+                  <span>Big Query</span>
                 </div>
-              </article>
-
-              <article class="skill-card reveal">
-                <h3>UI Craft</h3>
+              </div>
+              <div class="skill-card reveal">
+                <h3>Cloud & Infrastructure</h3>
                 <div class="badge-list">
-                  <span>Visual Hierarchy</span>
-                  <span>Interaction Design</span>
-                  <span>Motion Principles</span>
-                  <span>Accessibility</span>
+                  <span>AWS Cloud</span>
+                  <span>Google Cloud</span>
+                  <span>Data Pipelines</span>
+                  <span>ETL</span>
                 </div>
-              </article>
-
-              <article class="skill-card reveal">
-                <h3>Workflow</h3>
+              </div>
+              <div class="skill-card reveal">
+                <h3>Tools & Platforms</h3>
                 <div class="badge-list">
-                  <span>Git</span>
-                  <span>Component Thinking</span>
-                  <span>Prototyping</span>
-                  <span>Performance Awareness</span>
+                  <span>Microsoft Suite</span>
+                  <span>G-Suite</span>
+                  <span>Project Management</span>
+                  <span>Agile</span>
                 </div>
-              </article>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section class="section certifications" id="certifications">
-          <div class="container split-layout alt-layout">
-            <div class="section-heading reveal">
-              <p class="section-kicker">Certifications</p>
-              <h2>Structured learning backed by applied practice.</h2>
-            </div>
+    <!-- CERTIFICATIONS SECTION -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="split-layout alt-layout">
+          <div>
+            <h2 class="section-kicker">Certifications</h2>
+          </div>
+          <div>
+            <h2 class="section-heading">Professional Credentials</h2>
             <div class="cert-list">
-              <article class="cert-card reveal">
+              <div class="cert-card reveal">
                 <span>01</span>
                 <div>
-                  <h3>Frontend Development Essentials</h3>
-                  <p>Coverage in semantic HTML, modern CSS layout, and browser-friendly interaction patterns.</p>
+                  <h3>Google Project Management Certificate</h3>
+                  <p>Completed April 29, 2023 | Covers project planning, execution, and stakeholder management.</p>
                 </div>
-              </article>
-              <article class="cert-card reveal">
+              </div>
+              <div class="cert-card reveal">
                 <span>02</span>
                 <div>
-                  <h3>JavaScript Programming Foundations</h3>
-                  <p>Strong grounding in DOM logic, event handling, stateful UI behavior, and reusable patterns.</p>
+                  <h3>Google Data Analytics Certificate</h3>
+                  <p>Completed October 10, 2023 | Mastery of data collection, analysis, and visualization techniques.</p>
                 </div>
-              </article>
-              <article class="cert-card reveal">
+              </div>
+              <div class="cert-card reveal">
                 <span>03</span>
                 <div>
-                  <h3>UI and UX Design Principles</h3>
-                  <p>Focused on information hierarchy, clarity, consistency, and user-centered interface thinking.</p>
+                  <h3>Bachelor of Arts in Statistics & Data Science</h3>
+                  <p>Parami University, Class of 2027 | GPA: 3.3 | Advanced coursework in statistical methods and machine learning.</p>
                 </div>
-              </article>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section class="section projects" id="projects">
-          <div class="container">
-            <div class="section-heading reveal narrow">
-              <p class="section-kicker">Projects</p>
-              <h2>Selected work presented as concise case studies.</h2>
-            </div>
-
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="split-layout alt-layout">
+          <div>
+            <h2 class="section-kicker">Projects</h2>
+          </div>
+          <div>
+            <h2 class="section-heading">Featured Work</h2>
             <div class="project-stack">
-              <article class="project-card reveal">
+              <div class="project-card reveal">
                 <div class="project-visual"></div>
                 <div class="project-copy">
-                  <p class="project-index">Project 01</p>
-                  <h3>Personal Brand Portfolio</h3>
-                  <p>
-                    A single-page identity site balancing personal storytelling, professional credibility,
-                    and efficient navigation for recruiters or collaborators.
-                  </p>
+                  <p class="project-index">01 / Data Analytics</p>
+                  <h3>Curriculum Impact Analysis</h3>
+                  <p>Designed and analyzed lesson plan effectiveness for disadvantaged youth in Myanmar. Created dashboards to track learner progress and inform curriculum iterations.</p>
                   <ul>
-                    <li>Single-page architecture</li>
-                    <li>Responsive layout system</li>
-                    <li>Smooth in-page navigation</li>
+                    <li>Data collection & validation</li>
+                    <li>Statistical analysis</li>
+                    <li>PowerBI dashboards</li>
                   </ul>
                 </div>
-              </article>
+              </div>
 
-              <article class="project-card reveal reverse">
+              <div class="project-card reverse reveal">
                 <div class="project-visual secondary"></div>
                 <div class="project-copy">
-                  <p class="project-index">Project 02</p>
-                  <h3>Design System Landing Concept</h3>
-                  <p>
-                    A concept page for presenting reusable interface standards, component thinking, and brand
-                    consistency within a modern product team.
-                  </p>
+                  <p class="project-index">02 / Project Management</p>
+                  <h3>Civic Engagement Initiative</h3>
+                  <p>Managed scheduling, agenda preparation, and team collaboration for community workshops on federalism. Improved decision-making processes through structured planning.</p>
                   <ul>
-                    <li>Token-led visual system</li>
-                    <li>Editorial content structure</li>
-                    <li>Accessible interaction cues</li>
+                    <li>Team coordination</li>
+                    <li>Stakeholder engagement</li>
+                    <li>Process optimization</li>
                   </ul>
                 </div>
-              </article>
+              </div>
             </div>
           </div>
-        </section>
-
-        <section class="section contact" id="contact">
-          <div class="container contact-panel reveal">
-            <div>
-              <p class="section-kicker">Contact</p>
-              <h2>Let us build something thoughtful together.</h2>
-              <p>
-                Whether you are hiring, collaborating, or reviewing portfolios, I am happy to discuss
-                project goals, design direction, and implementation needs.
-              </p>
-            </div>
-            <div class="contact-actions">
-              <a class="button button-primary" href="mailto:hello@example.com">hello@example.com</a>
-              <a class="button button-secondary" href="#hero">Back to Top</a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <div class="container footer-wrap">
-          <p>Designed as a single-page eportfolio using only HTML, CSS, and vanilla JavaScript.</p>
-          <p>&copy; <span id="year"></span> Eportfolio</p>
         </div>
-      </footer>
-    </div>
+      </div>
+    </section>
 
-    <script src="./assets/js/main.js"></script>
-  </body>
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <h2 class="section-heading">Let's Connect</h2>
+            <p>Whether you're interested in collaborating on data projects, discussing AI applications, or just saying hello—I'd love to hear from you.</p>
+            <div class="contact-actions">
+              <a href="mailto:minthanthein454@gmail.com" class="button button-primary">Send Email</a>
+              <a href="#" class="button button-secondary">LinkedIn</a>
+            </div>
+          </div>
+          <div class="contact-info">
+            <p><strong>Email:</strong> minthanthein454@gmail.com</p>
+            <p><strong>Phone:</strong> +66-620-276-712</p>
+            <p><strong>Location:</strong> Chiang Mai, Thailand</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-wrap">
+          <p>&copy; <span id="year"></span> Min Thant Hein. All rights reserved.</p>
+          <p><a href="#hero">Back to Top</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./assets/js/main.js"></script>
+</body>
 </html>
