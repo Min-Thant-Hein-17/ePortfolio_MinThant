@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Design reminder: Editorial futurism with asymmetric composition, near-black surfaces, teal annotations, and disciplined whitespace. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A dark-themed single-page eportfolio built with HTML, CSS, and vanilla JavaScript."
+    />
+    <title>Eportfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" id="top">
+        <div class="container nav-wrap">
+          <a class="brand" href="#hero" aria-label="Go to hero section">
+            <span class="brand-mark">EP</span>
+            <span class="brand-copy">
+              <strong>Eportfolio</strong>
+              <small>Creative Developer Profile</small>
+            </span>
+          </a>
+
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="site-nav" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero section" id="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy reveal">
+              <p class="section-kicker">Portfolio / 2026 Edition</p>
+              <h1>
+                Designing and building digital products with
+                <span>clarity, craft, and technical depth.</span>
+              </h1>
+              <p class="hero-lead">
+                I am a multidisciplinary developer focused on elegant frontend experiences,
+                strong engineering foundations, and polished interfaces that communicate
+                credibility at a glance.
+              </p>
+
+              <div class="hero-actions">
+                <a class="button button-primary" href="#projects">View Projects</a>
+                <a class="button button-secondary" href="#contact">Get in Touch</a>
+              </div>
+
+              <div class="stats-row">
+                <article>
+                  <strong data-counter="5">0</strong>
+                  <span>Featured Projects</span>
+                </article>
+                <article>
+                  <strong data-counter="8">0</strong>
+                  <span>Core Skills</span>
+                </article>
+                <article>
+                  <strong data-counter="3">0</strong>
+                  <span>Certifications</span>
+                </article>
+              </div>
+            </div>
+
+            <aside class="hero-panel reveal">
+              <div class="profile-card">
+                <div class="profile-ring">
+                  <img
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663561264118/HEyLipXGZVD6rgF5aC5Xvk/eportfolio-profile-placeholder-SSphf2bhMJ435BTsBhAH5D.webp"
+                    alt="Profile placeholder portrait"
+                  />
+                </div>
+                <div class="profile-meta">
+                  <p>Available for freelance and full-time opportunities</p>
+                  <ul>
+                    <li>Frontend Systems</li>
+                    <li>UI Engineering</li>
+                    <li>Product Storytelling</li>
+                  </ul>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section about" id="about">
+          <div class="container split-layout">
+            <div class="section-heading reveal">
+              <p class="section-kicker">About</p>
+              <h2>Building work that is functional, legible, and memorable.</h2>
+            </div>
+            <div class="section-body reveal">
+              <p>
+                I approach digital products as systems of communication. Good interfaces should not only
+                look refined; they should also reduce friction, support decisions, and create trust. My
+                work combines visual discipline, frontend implementation, and thoughtful interaction design.
+              </p>
+              <p>
+                This portfolio format is intentionally concise: a single scrollable narrative that surfaces
+                skills, evidence, and contact points without forcing visitors through multiple pages.
+              </p>
+              <div class="timeline-note">
+                <span></span>
+                <p>Interested in product design, frontend architecture, accessibility, and design systems.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section skills" id="skills">
+          <div class="container">
+            <div class="section-heading reveal narrow">
+              <p class="section-kicker">Skills</p>
+              <h2>Capabilities organized around product delivery.</h2>
+            </div>
+
+            <div class="skill-groups">
+              <article class="skill-card reveal">
+                <h3>Frontend Engineering</h3>
+                <div class="badge-list">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>Responsive Layouts</span>
+                </div>
+              </article>
+
+              <article class="skill-card reveal">
+                <h3>UI Craft</h3>
+                <div class="badge-list">
+                  <span>Visual Hierarchy</span>
+                  <span>Interaction Design</span>
+                  <span>Motion Principles</span>
+                  <span>Accessibility</span>
+                </div>
+              </article>
+
+              <article class="skill-card reveal">
+                <h3>Workflow</h3>
+                <div class="badge-list">
+                  <span>Git</span>
+                  <span>Component Thinking</span>
+                  <span>Prototyping</span>
+                  <span>Performance Awareness</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section certifications" id="certifications">
+          <div class="container split-layout alt-layout">
+            <div class="section-heading reveal">
+              <p class="section-kicker">Certifications</p>
+              <h2>Structured learning backed by applied practice.</h2>
+            </div>
+            <div class="cert-list">
+              <article class="cert-card reveal">
+                <span>01</span>
+                <div>
+                  <h3>Frontend Development Essentials</h3>
+                  <p>Coverage in semantic HTML, modern CSS layout, and browser-friendly interaction patterns.</p>
+                </div>
+              </article>
+              <article class="cert-card reveal">
+                <span>02</span>
+                <div>
+                  <h3>JavaScript Programming Foundations</h3>
+                  <p>Strong grounding in DOM logic, event handling, stateful UI behavior, and reusable patterns.</p>
+                </div>
+              </article>
+              <article class="cert-card reveal">
+                <span>03</span>
+                <div>
+                  <h3>UI and UX Design Principles</h3>
+                  <p>Focused on information hierarchy, clarity, consistency, and user-centered interface thinking.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section projects" id="projects">
+          <div class="container">
+            <div class="section-heading reveal narrow">
+              <p class="section-kicker">Projects</p>
+              <h2>Selected work presented as concise case studies.</h2>
+            </div>
+
+            <div class="project-stack">
+              <article class="project-card reveal">
+                <div class="project-visual"></div>
+                <div class="project-copy">
+                  <p class="project-index">Project 01</p>
+                  <h3>Personal Brand Portfolio</h3>
+                  <p>
+                    A single-page identity site balancing personal storytelling, professional credibility,
+                    and efficient navigation for recruiters or collaborators.
+                  </p>
+                  <ul>
+                    <li>Single-page architecture</li>
+                    <li>Responsive layout system</li>
+                    <li>Smooth in-page navigation</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="project-card reveal reverse">
+                <div class="project-visual secondary"></div>
+                <div class="project-copy">
+                  <p class="project-index">Project 02</p>
+                  <h3>Design System Landing Concept</h3>
+                  <p>
+                    A concept page for presenting reusable interface standards, component thinking, and brand
+                    consistency within a modern product team.
+                  </p>
+                  <ul>
+                    <li>Token-led visual system</li>
+                    <li>Editorial content structure</li>
+                    <li>Accessible interaction cues</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section contact" id="contact">
+          <div class="container contact-panel reveal">
+            <div>
+              <p class="section-kicker">Contact</p>
+              <h2>Let us build something thoughtful together.</h2>
+              <p>
+                Whether you are hiring, collaborating, or reviewing portfolios, I am happy to discuss
+                project goals, design direction, and implementation needs.
+              </p>
+            </div>
+            <div class="contact-actions">
+              <a class="button button-primary" href="mailto:hello@example.com">hello@example.com</a>
+              <a class="button button-secondary" href="#hero">Back to Top</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-wrap">
+          <p>Designed as a single-page eportfolio using only HTML, CSS, and vanilla JavaScript.</p>
+          <p>&copy; <span id="year"></span> Eportfolio</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
