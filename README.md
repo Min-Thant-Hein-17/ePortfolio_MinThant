@@ -45,7 +45,7 @@ This portfolio serves as my professional digital identity — a central place wh
 ## Getting Started
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/eportfolio.git
+git clone https://github.com/Min-Thant-Hein-17/eportfolio.git
 cd eportfolio
 open index.html
 ```
