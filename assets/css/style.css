@@ -33,7 +33,7 @@ body {
     radial-gradient(circle at 82% 18%, rgba(0, 201, 167, 0.08), transparent 0 24%),
     linear-gradient(180deg, #0a0f1a 0%, #08111c 52%, #0a0f1a 100%);
   color: var(--text);
-  font-family: "Sora", sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.65;
   overflow-x: hidden;
 }
@@ -244,18 +244,18 @@ a {
   font-size: 0.78rem;
 }
 
-.hero-title,
-.section-heading h2,
-.project-copy h3,
-.cert-card h3 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1.05;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
 }
 
 .hero-title {
   max-width: 12ch;
   font-size: clamp(3rem, 7vw, 5.8rem);
   letter-spacing: -0.05em;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .accent-text {
@@ -1402,5 +1402,513 @@ a {
     height: 400px;
     bottom: -150px;
     right: -150px;
+  }
+}
+
+
+/* ============================================================================
+   SCROLL ANIMATIONS
+   ============================================================================ */
+
+/* Section headings slide in from bottom */
+.section-heading {
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reveal items fade in on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for cards */
+.cert-card-grid:nth-child(1) { transition-delay: 0s; }
+.cert-card-grid:nth-child(2) { transition-delay: 0.1s; }
+.cert-card-grid:nth-child(3) { transition-delay: 0.2s; }
+.cert-card-grid:nth-child(4) { transition-delay: 0.3s; }
+.cert-card-grid:nth-child(5) { transition-delay: 0.4s; }
+.cert-card-grid:nth-child(6) { transition-delay: 0.5s; }
+
+.project-card-grid:nth-child(1) { transition-delay: 0s; }
+.project-card-grid:nth-child(2) { transition-delay: 0.1s; }
+.project-card-grid:nth-child(3) { transition-delay: 0.2s; }
+.project-card-grid:nth-child(4) { transition-delay: 0.3s; }
+
+/* ============================================================================
+   RESPONSIVE DESIGN - TABLET (768px)
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 72px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Navbar adjustments */
+  .nav-wrap {
+    min-height: var(--header-height);
+  }
+
+  .site-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 15, 26, 0.95);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    gap: 1rem;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 19;
+  }
+
+  .site-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Hero section */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-panel {
+    justify-content: center;
+  }
+
+  /* Section spacing */
+  .section {
+    padding: 3rem 0;
+  }
+
+  /* About section */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Skills section */
+  .skills-grid {
+    gap: 1rem;
+  }
+
+  /* Certifications grid */
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Projects grid */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact section */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+
+  /* Typography adjustments */
+  .section-heading {
+    font-size: 1.8rem;
+  }
+
+  .project-title,
+  .cert-title {
+    font-size: 1.1rem;
+  }
+
+  /* Footer */
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - MOBILE (375px)
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 64px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Navbar */
+  .brand-mark {
+    width: 44px;
+    height: 44px;
+    font-size: 0.75rem;
+  }
+
+  .brand-copy strong {
+    font-size: 0.9rem;
+  }
+
+  .brand-copy small {
+    font-size: 0.7rem;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    max-width: 100%;
+  }
+
+  .typewriter-container {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .typewriter-prefix,
+  .typewriter-text,
+  .typewriter-cursor {
+    font-size: 1.2rem;
+  }
+
+  .hero-role {
+    font-size: 0.9rem;
+  }
+
+  .hero-bio {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Section spacing */
+  .section {
+    padding: 2rem 0;
+  }
+
+  .section-kicker {
+    font-size: 0.7rem;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+  }
+
+  /* About section */
+  .about-grid {
+    gap: 1.5rem;
+  }
+
+  .about-copy {
+    font-size: 0.95rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  /* Skills section */
+  .skills-grid {
+    gap: 0.75rem;
+  }
+
+  .skill-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Certifications */
+  .cert-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cert-card-grid {
+    padding: 1.25rem;
+  }
+
+  .cert-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .cert-title {
+    font-size: 1rem;
+  }
+
+  .cert-issuer,
+  .cert-date {
+    font-size: 0.85rem;
+  }
+
+  .cert-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Projects */
+  .project-filters {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .projects-grid {
+    gap: 1.25rem;
+  }
+
+  .project-card-grid {
+    border-radius: var(--radius-md);
+  }
+
+  .project-banner {
+    height: 150px;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+  }
+
+  .project-tags {
+    gap: 0.5rem;
+  }
+
+  .tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .project-links {
+    gap: 0.75rem;
+  }
+
+  .project-link {
+    font-size: 0.85rem;
+  }
+
+  /* Contact section */
+  .contact-grid {
+    gap: 1.5rem;
+  }
+
+  .contact-copy {
+    font-size: 0.95rem;
+  }
+
+  .contact-info {
+    font-size: 0.9rem;
+  }
+
+  .contact-actions {
+    gap: 0.75rem;
+  }
+
+  .contact-actions a {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .contact-form {
+    gap: 1rem;
+  }
+
+  .form-group {
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 0;
+    font-size: 0.85rem;
+  }
+
+  .footer-nav {
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .footer-nav a {
+    font-size: 0.85rem;
+  }
+
+  /* Glow effect */
+  .glow-bottom-right {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -100px;
+  }
+
+  /* Profile card */
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .profile-ring {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .profile-meta {
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .profile-meta p {
+    margin: 0.25rem 0;
+  }
+
+  .profile-meta ul {
+    gap: 0.5rem;
+  }
+
+  .profile-meta li {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY & WCAG AA COMPLIANCE
+   ============================================================================ */
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  :root {
+    --text: #ffffff;
+    --muted: #b3d9ff;
+    --accent: #00ffcc;
+    --border: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark mode support (already default, but explicit) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0f1a;
+    --text: #ffffff;
+    --accent: #00c9a7;
   }
 }
